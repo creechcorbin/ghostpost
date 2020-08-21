@@ -1,0 +1,30 @@
+<div class='container'>
+    <hr>
+    <h1>GhostPost</h1>
+    <hr>
+    <a href='/'>Home</a>  <a href='/add-post/'>Add a Boast/Roast</a>  <a href='/boasts'>Boasts</a>  <a href='/roasts'>Roasts</a>  <a href='/byvotes'>Most Upvoted</a>
+    {% for post in posts %}
+        
+            <hr>
+            <h2>{{ post.content }}</h2>
+
+        {% if post.post_type == False %}  
+
+            <h2>Boast</h2>
+
+        {% else %}
+
+            <h2>Roast</h2>
+
+        {% endif %}
+            <button><a href='/upvote/{{ post.id }}/'>Upvote</a></button>
+            
+            <h2>{{ post.votescore }}</h2>
+
+            <button><a href='/downvote/{{ post.id }}/'>Downvote</a></button>
+
+            <h2>{{ post.post_time }}</h2>
+
+            <hr>
+    {% endfor %}
+</div>
